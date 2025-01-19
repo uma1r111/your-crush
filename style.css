@@ -12,6 +12,7 @@ body {
     align-items: center;
     min-height: 100vh;
     background: rgb(254, 213, 220);
+    position: relative;
     
 }
 
@@ -52,7 +53,92 @@ h1 {
     border-radius: 30px;
     box-shadow: 0.5rem 1rem 3rem hsl(0, 0%, 0%, 0.3);
     background: #fe5964;
-    
-    
+       
 }
 
+
+.heart-corner {
+    height: 30px;
+    width: 30px;
+    background: #f20044;
+    position: absolute;
+    top: 30px;
+    right: 32px;
+    transform: rotate(-45deg);
+    box-shadow: -5px 5px 25px #f20044;
+    animation: heart 0.6s linear infinite;
+}
+
+.heart-corner::before {
+    content: '';
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    background: #f20044;
+    top: -15px;
+    left: 0;
+    border-radius: 50%;
+    box-shadow: -5px -5px 25px #f20044;
+}
+
+.heart-corner::after {
+    content: '';
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    background: #f20044;
+    top: 0;
+    left: 15px;
+    border-radius: 50%;
+    box-shadow: 5px 5px 25px #f20044;
+}
+
+
+.heart-inline {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    background: #f20044;
+    position: relative;
+    transform: rotate(-45deg);
+    /* box-shadow: -5px 5px 15px #f20044; */
+    animation: heart 0.6s linear infinite;
+    margin-left: 8px; /* Space between text and heart */
+}
+
+.heart-inline::before {
+    content: '';
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    background: #f20044;
+    top: -10px;
+    left: 0;
+    border-radius: 50%;
+    /* box-shadow: -5px -5px 15px #f20044; */
+}
+
+.heart-inline::after {
+    content: '';
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    background: #f20044;
+    top: 0;
+    left: 10px;
+    border-radius: 50%;
+    /* box-shadow: 5px 5px 15px #f20044; */
+}
+
+/* Shared animation */
+@keyframes heart {
+    0% {
+        transform: rotate(-45deg) scale(1.1);
+    }
+    80% {
+        transform: rotate(-45deg) scale(1.0);
+    }
+    100% {
+        transform: rotate(-45deg) scale(0.9);
+    }
+}
